@@ -1,0 +1,25 @@
+{
+  "name": "babel-jsx-test",
+  "version": "1.0.0",
+  "description": "test of babel and jsx",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx babel js/script.jsx -o js/script.js -w"},
+  "author": "Grinko Evgenii",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
+  "dependencies": {
+    "react": "^15.7.0",
+    "react-dom": "^15.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.5.0"
+  }
+}
