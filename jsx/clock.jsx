@@ -44,6 +44,7 @@ const AnalogDisplay = function AnalogDisplay(props) {
     backgroundColor: 'grey'
     }
     console.log(props.time)
+    
     return <div>
     <div style={dialStyle}>
     <div style={secondHandStyle}/>
@@ -53,8 +54,11 @@ const AnalogDisplay = function AnalogDisplay(props) {
     </div>
     }
 const DigitalDisplay = function(props) {
+    
     return <div>{props.time}</div>
     }
+    
+        
 class Clock extends React.Component {
     constructor(props) {
         super(props)
@@ -69,15 +73,49 @@ class Clock extends React.Component {
             })
             }, 1000) 
         }
+        
+        componentWillMount() {
+        console.log('componentWillMount is triggered')
+        }
+        componentDidMount(e) {
+        console.log('componentDidMount is triggered')
+        console.log('DOM node: ', ReactDOM.findDOMNode(this))
+        }
+        componentWillReceiveProps(newProps) {
+        console.log('componentWillReceiveProps is triggered')
+        console.log('new props: ', newProps)
+        }
+        shouldComponentUpdate(newProps, newState) {
+           
+            console.log('shouldComponentUpdate is triggered')
+            console.log('new props: ', newProps)
+            console.log('new state: ', newState)
+            return true}
+        componentWillUpdate(newProps, newState) {
+        console.log('componentWillUpdate is triggered')
+        console.log('new props: ', newProps)
+        console.log('new state: ', newState)
+        }
+        componentDidUpdate(oldProps, oldState) {
+        console.log('componentDidUpdate is triggered')
+        console.log('new props: ', oldProps)
+        console.log('old props: ', oldState)
+        }
+        componentWillUnmount() {
+        console.log('componentWillUnmount')
+        }
+           
 
     render() {
         console.log('Rendering Clock...')
     return <div>
         <AnalogDisplay time={this.state.currentTime}/>
         <DigitalDisplay time={this.state.currentTime.toLocaleString()}/>
+        
         </div>
     }
     }
+
     
     ReactDOM.render(
     <Clock />,

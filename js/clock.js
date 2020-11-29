@@ -44,6 +44,7 @@ const AnalogDisplay = function AnalogDisplay(props) {
         backgroundColor: 'grey'
     };
     console.log(props.time);
+
     return React.createElement(
         'div',
         null,
@@ -57,12 +58,14 @@ const AnalogDisplay = function AnalogDisplay(props) {
     );
 };
 const DigitalDisplay = function (props) {
+
     return React.createElement(
         'div',
         null,
         props.time
     );
 };
+
 class Clock extends React.Component {
     constructor(props) {
         super(props);
@@ -76,6 +79,38 @@ class Clock extends React.Component {
                 currentTime: new Date()
             });
         }, 1000);
+    }
+
+    componentWillMount() {
+        console.log('componentWillMount is triggered');
+    }
+    componentDidMount(e) {
+        console.log('componentDidMount is triggered');
+        console.log('DOM node: ', ReactDOM.findDOMNode(this));
+    }
+    componentWillReceiveProps(newProps) {
+        console.log('componentWillReceiveProps is triggered');
+        console.log('new props: ', newProps);
+    }
+    shouldComponentUpdate(newProps, newState) {
+
+        console.log('shouldComponentUpdate is triggered');
+        console.log('new props: ', newProps);
+        console.log('new state: ', newState);
+        return true;
+    }
+    componentWillUpdate(newProps, newState) {
+        console.log('componentWillUpdate is triggered');
+        console.log('new props: ', newProps);
+        console.log('new state: ', newState);
+    }
+    componentDidUpdate(oldProps, oldState) {
+        console.log('componentDidUpdate is triggered');
+        console.log('new props: ', oldProps);
+        console.log('old props: ', oldState);
+    }
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
     }
 
     render() {

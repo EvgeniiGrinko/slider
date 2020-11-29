@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-clock": "npx babel jsx/clock.jsx -o js/clock.js -w",
-    "build-clock-analog-digital": "npx babel jsx/clock-analog-digital -o js/sclock-analog-digital -w",
-    "build": "npm run build-clock & npm run build-clock-analog-digital"},
+    "build": "npm run build-clock"},
   "author": "Grinko Evgenii",
   "license": "ISC",
   "babel": {
