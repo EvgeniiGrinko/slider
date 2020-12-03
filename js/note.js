@@ -4,11 +4,20 @@ class ClickCounterButton extends React.Component {
             "button",
             {
                 onClick: this.props.handler,
+                className: "btn btn-info" },
+            "Don\u2019t touch me with your dirty hands!"
+        );
+    }
+}
 
-                className: "btn btn-danger" },
-            "Increase Volume (Current volume is ",
-            this.props.counter,
-            ")"
+class Counter extends React.Component {
+    render() {
+        return React.createElement(
+            "span",
+            null,
+            "Clicked ",
+            this.props.value,
+            " times."
         );
     }
 }
@@ -25,9 +34,9 @@ class Content extends React.Component {
         return React.createElement(
             "div",
             null,
-            React.createElement(ClickCounterButton, {
-                counter: this.state.counter,
-                handler: this.handleClick })
+            React.createElement(ClickCounterButton, { handler: this.handleClick }),
+            React.createElement("br", null),
+            React.createElement(Counter, { value: this.state.counter })
         );
     }
 }
