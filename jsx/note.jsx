@@ -1,21 +1,29 @@
-class Note extends React.Component {
-    confirmLeave(e) {
-    let confirmationMessage = 'Do you really want to close?';
-    e.returnValue = confirmationMessage;
-    // Gecko, Trident, Chrome 34+
-    return confirmationMessage;
-    // Gecko, WebKit, Chrome <34
-    }
-    componentDidMount() {
-    console.log('Attaching confirmLeave event listener for beforeunload')
-    window.addEventListener('beforeunload', this.confirmLeave)
-    }
-    componentWillUnmount() {
-    console.log('Removing confirmLeave event listener for beforeunload')
-    window.removeEventListener('beforeunload', this.confirmLeave)
-    }
+class ClickCounterButton extends React.Component {
     render() {
-    console.log('Render')
-    return <div>`parent will remove in ${this.props.secondsLeft} seconds`</div>
+    return <button
+    onClick={this.props.handler}
+
+    className="btn btn-danger">
+    Increase Volume (Current volume is {this.props.counter})
+    </button>
     }
     }
+    class Content extends React.Component {
+        constructor(props) {
+        super(props)
+        this.handleClick = this.handleClick.bind(this)
+        this.state = {counter: 0}
+        }
+        handleClick(event) {
+        this.setState({counter: ++this.state.counter})
+        }
+        render() {
+        return (
+        <div>
+        <ClickCounterButton
+        counter={this.state.counter}
+        handler={this.handleClick}/>
+        </div>
+        )
+        }
+        }
