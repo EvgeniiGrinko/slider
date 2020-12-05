@@ -1,6 +1,7 @@
-
 ReactDOM.render(
-<div>
-<Content/>
-</div>,
-document.getElementById('content'))
+    <div>
+      <SliderValue />
+      <SliderButtons/>
+    </div>,
+    document.getElementById('content')
+  )
