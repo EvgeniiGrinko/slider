@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-slider-buttons": "npx babel jsx/slider-buttons.jsx -o js/slider-buttons.js",
     "build-script": "npx babel jsx/script.jsx -o js/script.js",
-    "build-slider-value": "npx babel jsx/slider-value.jsx -o js/slider-value.js"
+    "build-slider-value": "npx babel jsx/slider-value.jsx -o js/slider-value.js",
+    "build-loan": "npx babel jsx/loan.jsx -o js/loan.js"
   },
   "author": "Grinko Evgenii",
   "license": "ISC",
